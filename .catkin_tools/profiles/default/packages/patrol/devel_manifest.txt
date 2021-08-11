@@ -1,5 +1,0 @@
-jackal_addons/patrol
-/home/eternal/Desktop/jackalxjackal/devel/.private/patrol/cmake.lock /home/eternal/Desktop/jackalxjackal/devel/./cmake.lock
-/home/eternal/Desktop/jackalxjackal/devel/.private/patrol/share/patrol/cmake/patrolConfig.cmake /home/eternal/Desktop/jackalxjackal/devel/share/patrol/cmake/patrolConfig.cmake
-/home/eternal/Desktop/jackalxjackal/devel/.private/patrol/share/patrol/cmake/patrolConfig-version.cmake /home/eternal/Desktop/jackalxjackal/devel/share/patrol/cmake/patrolConfig-version.cmake
-/home/eternal/Desktop/jackalxjackal/devel/.private/patrol/lib/pkgconfig/patrol.pc /home/eternal/Desktop/jackalxjackal/devel/lib/pkgconfig/patrol.pc

@@ -1,5 +1,0 @@
-jackal/jackal_tutorials
-/home/eternal/Desktop/jackalxjackal/devel/.private/jackal_tutorials/cmake.lock /home/eternal/Desktop/jackalxjackal/devel/./cmake.lock
-/home/eternal/Desktop/jackalxjackal/devel/.private/jackal_tutorials/share/jackal_tutorials/cmake/jackal_tutorialsConfig.cmake /home/eternal/Desktop/jackalxjackal/devel/share/jackal_tutorials/cmake/jackal_tutorialsConfig.cmake
-/home/eternal/Desktop/jackalxjackal/devel/.private/jackal_tutorials/share/jackal_tutorials/cmake/jackal_tutorialsConfig-version.cmake /home/eternal/Desktop/jackalxjackal/devel/share/jackal_tutorials/cmake/jackal_tutorialsConfig-version.cmake
-/home/eternal/Desktop/jackalxjackal/devel/.private/jackal_tutorials/lib/pkgconfig/jackal_tutorials.pc /home/eternal/Desktop/jackalxjackal/devel/lib/pkgconfig/jackal_tutorials.pc

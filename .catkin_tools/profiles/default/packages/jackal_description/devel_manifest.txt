@@ -1,5 +1,0 @@
-jackal/jackal_description
-/home/eternal/Desktop/jackalxjackal/devel/.private/jackal_description/cmake.lock /home/eternal/Desktop/jackalxjackal/devel/./cmake.lock
-/home/eternal/Desktop/jackalxjackal/devel/.private/jackal_description/share/jackal_description/cmake/jackal_descriptionConfig-version.cmake /home/eternal/Desktop/jackalxjackal/devel/share/jackal_description/cmake/jackal_descriptionConfig-version.cmake
-/home/eternal/Desktop/jackalxjackal/devel/.private/jackal_description/share/jackal_description/cmake/jackal_descriptionConfig.cmake /home/eternal/Desktop/jackalxjackal/devel/share/jackal_description/cmake/jackal_descriptionConfig.cmake
-/home/eternal/Desktop/jackalxjackal/devel/.private/jackal_description/lib/pkgconfig/jackal_description.pc /home/eternal/Desktop/jackalxjackal/devel/lib/pkgconfig/jackal_description.pc

@@ -1,5 +1,0 @@
-jackal/jackal_control
-/home/eternal/Desktop/jackalxjackal/devel/.private/jackal_control/cmake.lock /home/eternal/Desktop/jackalxjackal/devel/./cmake.lock
-/home/eternal/Desktop/jackalxjackal/devel/.private/jackal_control/share/jackal_control/cmake/jackal_controlConfig-version.cmake /home/eternal/Desktop/jackalxjackal/devel/share/jackal_control/cmake/jackal_controlConfig-version.cmake
-/home/eternal/Desktop/jackalxjackal/devel/.private/jackal_control/share/jackal_control/cmake/jackal_controlConfig.cmake /home/eternal/Desktop/jackalxjackal/devel/share/jackal_control/cmake/jackal_controlConfig.cmake
-/home/eternal/Desktop/jackalxjackal/devel/.private/jackal_control/lib/pkgconfig/jackal_control.pc /home/eternal/Desktop/jackalxjackal/devel/lib/pkgconfig/jackal_control.pc
