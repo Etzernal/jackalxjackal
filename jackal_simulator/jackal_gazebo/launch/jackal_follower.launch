@@ -69,7 +69,7 @@
   </node>
   -->
 
-  <!-- <node pkg="jackal_gazebo" type = "jackal_listener.py" name = "jackal_tf2_listener" output = "screen"/> -->
+  <node pkg="jackal_gazebo" type = "jackal_listener.py" name = "jackal_tf2_listener" output = "screen"/>
 
   <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="teleop_keyboard">
     <remap from= "/cmd_vel" to="/jackal1/jackal_velocity_controller/cmd_vel" />
