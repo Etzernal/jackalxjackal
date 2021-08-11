@@ -1,5 +1,5 @@
 <launch>
-  <arg name="use_sim_time" default="false" />
+  <arg name="use_sim_time" default="true" />
   <arg name="gui" default="true" />
   <arg name="headless" default="false" />
   <arg name="world_name" default="$(find jackal_gazebo)/worlds/jackal_race.world" />
@@ -31,7 +31,6 @@
 
   <!-- Spawn Jackal -->
   <group ns="$(arg ns1)">
-    
     <include file="$(find jackal_gazebo)/launch/spawn_jackal.launch">
       <arg name="x" value="0" />
       <arg name="y" value="0" />
@@ -43,9 +42,8 @@
     </include>
   </group>
   <group ns="$(arg ns2)">
-
     <include file="$(find jackal_gazebo)/launch/spawn_jackal.launch">
-      <arg name="x" value="0" />
+      <arg name="x" value="5.0" />
       <arg name="y" value="0" />
       <arg name="z" value="1.0" />
       <arg name="ns" value="$(arg ns2)" />
@@ -54,5 +52,4 @@
       <arg name="joystick" value="$(arg joystick)" />
     </include>
   </group>
- 
 </launch>

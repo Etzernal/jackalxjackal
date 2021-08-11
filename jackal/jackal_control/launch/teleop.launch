@@ -1,5 +1,4 @@
 <launch>
-  <arg name="ns" default="jackal" />
   <arg name="joy_dev" default="$(optenv JACKAL_JOY_DEVICE /dev/input/ps4)" />
   <arg name="joystick" default="true" />
 
