@@ -31,6 +31,7 @@
 
   <!-- Spawn Jackal -->
   <group ns="$(arg ns1)">
+    <param name="tf_prefix" value="$(arg ns1)_tf" />
     <include file="$(find jackal_gazebo)/launch/spawn_jackal.launch">
       <arg name="x" value="0" />
       <arg name="y" value="0" />
@@ -41,7 +42,9 @@
       <arg name="joystick" value="$(arg joystick)" />
     </include>
   </group>
+  <!--
   <group ns="$(arg ns2)">
+    <param name="tf_prefix" value="$(arg ns2)_tf" />
     <include file="$(find jackal_gazebo)/launch/spawn_jackal.launch">
       <arg name="x" value="5.0" />
       <arg name="y" value="0" />
@@ -52,4 +55,5 @@
       <arg name="joystick" value="$(arg joystick)" />
     </include>
   </group>
+  -->
 </launch>

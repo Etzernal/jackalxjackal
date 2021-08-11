@@ -12,9 +12,11 @@
 
   <!-- Load Jackal's description, controllers, and teleop nodes. -->
   <include file="$(find jackal_description)/launch/description.launch">
+    <arg name="ns" value="$(arg ns)" />
     <arg name="config" value="$(arg config)" />
   </include>
   <include file="$(find jackal_control)/launch/control.launch">
+  <arg name="ns" value="$(arg ns)" />
   </include>
   <include file="$(find jackal_control)/launch/teleop.launch">
     <arg name="joystick" value="$(arg joystick)" />
@@ -22,5 +24,6 @@
 
   <!-- Spawn Jackal -->
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
-	      args="-urdf -model $(arg ns) -param robot_description -x $(arg x) -y $(arg y) -z $(arg z) -R 0 -P 0 -Y $(arg yaw)" />
+	      args="-urdf -model $(arg ns) -param robot_description -x $(arg x) -y $(arg y) -z $(arg z) -R 0 -P 0 -Y $(arg yaw)"
+        respawn="false" output="screen" />
 </launch>
