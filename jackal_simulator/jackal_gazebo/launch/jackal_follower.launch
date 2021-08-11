@@ -1,8 +1,10 @@
 <launch>
-  <arg name="use_sim_time" default="true" />
+  <arg name="use_sim_time" default="false" />
   <arg name="gui" default="true" />
   <arg name="headless" default="false" />
   <arg name="world_name" default="$(find jackal_gazebo)/worlds/jackal_race.world" />
+  <arg name="ns1" default="jackal1" />
+  <arg name="ns2" default="jackal2" />
 
   <!-- Short-term hack to support the original front_laser:=true argument for spawning
        the simulator. This will be removed in favour of using the config:=x arg instead. -->
@@ -28,25 +30,29 @@
   </include>
 
   <!-- Spawn Jackal -->
-  
-  <include file="$(find jackal_gazebo)/launch/spawn_jackal.launch">
-    <arg name="x" value="0" />
-    <arg name="y" value="0" />
-    <arg name="z" value="1.0" />
-    <arg name="ns" value="jackal1" />
-    <arg name="yaw" value="0" />
-    <arg name="config" value="$(arg config)" />
-    <arg name="joystick" value="$(arg joystick)" />
-  </include>
+  <group ns="$(arg ns1)">
+    
+    <include file="$(find jackal_gazebo)/launch/spawn_jackal.launch">
+      <arg name="x" value="0" />
+      <arg name="y" value="0" />
+      <arg name="z" value="1.0" />
+      <arg name="ns" value="$(arg ns1)" />
+      <arg name="yaw" value="0" />
+      <arg name="config" value="$(arg config)" />
+      <arg name="joystick" value="$(arg joystick)" />
+    </include>
+  </group>
+  <group ns="$(arg ns2)">
 
-  <include file="$(find jackal_gazebo)/launch/spawn_jackal.launch">
-    <arg name="x" value="0" />
-    <arg name="y" value="0" />
-    <arg name="z" value="1.0" />
-    <arg name="ns" value="jackal2" />
-    <arg name="yaw" value="0" />
-    <arg name="config" value="$(arg config)" />
-    <arg name="joystick" value="$(arg joystick)" />
-  </include>
+    <include file="$(find jackal_gazebo)/launch/spawn_jackal.launch">
+      <arg name="x" value="0" />
+      <arg name="y" value="0" />
+      <arg name="z" value="1.0" />
+      <arg name="ns" value="$(arg ns2)" />
+      <arg name="yaw" value="0" />
+      <arg name="config" value="$(arg config)" />
+      <arg name="joystick" value="$(arg joystick)" />
+    </include>
+  </group>
  
 </launch>

@@ -15,10 +15,10 @@
       <param name="joy_node/dev" value="$(arg joy_dev)" />
     </group>
 
-    <node pkg="joy" type="joy_node" name="joy_node" ns="$(arg ns)"/>
+    <node pkg="joy" type="joy_node" name="joy_node"/>
 
-    <node pkg="teleop_twist_joy" type="teleop_node" name="teleop_twist_joy" ns="$(arg ns)"/>
+    <node pkg="teleop_twist_joy" type="teleop_node" name="teleop_twist_joy"/>
   </group>
 
-  <node pkg="interactive_marker_twist_server" type="marker_server" name="twist_marker_server" ns="$(arg ns)"/>
+  <node pkg="interactive_marker_twist_server" type="marker_server" name="twist_marker_server"/>
 </launch>

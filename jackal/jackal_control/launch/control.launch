@@ -5,10 +5,10 @@
   <rosparam command="load" file="$(find jackal_control)/config/control.yaml" />
 
   <node name="controller_spawner" pkg="controller_manager" type="spawner"
-        args="jackal_joint_publisher jackal_velocity_controller" ns="$(arg ns)" />
+        args="jackal_joint_publisher jackal_velocity_controller"/>
 
   <group if="$(arg enable_ekf)" >
-    <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization" ns="$(arg ns)">
+    <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization">
       <rosparam command="load" file="$(find jackal_control)/config/robot_localization.yaml" />
     </node>
 
@@ -18,7 +18,7 @@
     </group>
   </group>
 
-  <node pkg="twist_mux" type="twist_mux" name="twist_mux" ns="$(arg ns)">
+  <node pkg="twist_mux" type="twist_mux" name="twist_mux">
     <rosparam command="load" file="$(find jackal_control)/config/twist_mux.yaml" />
     <remap from="cmd_vel_out" to="jackal_velocity_controller/cmd_vel"/>
   </node>
