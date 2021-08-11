@@ -1,3 +1,5 @@
+<?xml version="1.0"?>
+
 <launch>
   <arg name="use_sim_time" default="true" />
   <arg name="gui" default="true" />
@@ -8,7 +10,7 @@
 
   <!-- Short-term hack to support the original front_laser:=true argument for spawning
        the simulator. This will be removed in favour of using the config:=x arg instead. -->
-  <arg name="front_laser" default="false" />
+  <arg name="front_laser" default="true" />
   <arg name="default_config" value="front_laser" if="$(arg front_laser)" />
   <arg name="default_config" value="base" unless="$(arg front_laser)" />
   <!-- end of hack -->
@@ -46,7 +48,7 @@
   <group ns="$(arg ns2)">
 
     <include file="$(find jackal_gazebo)/launch/spawn_jackal.launch">
-      <arg name="x" value="5.0" />
+      <arg name="x" value="-5.0" />
       <arg name="y" value="0" />
       <arg name="z" value="1.0" />
       <arg name="ns" value="$(arg ns2)" />
@@ -55,5 +57,22 @@
       <arg name="joystick" value="$(arg joystick)" />
     </include>
   </group>
+
+
+  <node name = "jackal1_tf2_broadcaster" pkg = "jackal_gazebo" type = "jackal_broadcaster.py" respawn ="false" output ="screen" >
+    <param name = "jackal" type = "string" value ="jackal1"/>
+  </node>
+
+  <!--
+  <node name = "jackal2_tf2_broadcaster" pkg = "jackal_gazebo" type = "jackal_tf2_broadcaster.py" respawn ="false" output ="screen" >
+    <param name = "jackal" type = "string" value ="jackal2"/>
+  </node>
+  -->
+
+  <!-- <node pkg="jackal_gazebo" type = "jackal_listener.py" name = "jackal_tf2_listener" output = "screen"/> -->
+
+  <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="teleop_keyboard">
+    <remap from= "/cmd_vel" to="/jackal1/jackal_velocity_controller/cmd_vel" />
+  </node>
   
 </launch>
