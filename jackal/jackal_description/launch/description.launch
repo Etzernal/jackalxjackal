@@ -10,8 +10,7 @@
          command="$(find jackal_description)/scripts/$(arg env_runner)
                     $(find jackal_description)/urdf/configs/$(arg config)
                     $(find xacro)/xacro $(find jackal_description)/urdf/jackal.urdf.xacro
-                    --inorder name:=$(arg ns)"/>
-  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
-    
+                    --inorder namespace:=$(arg ns)"/>
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" >
   </node>
 </launch>
