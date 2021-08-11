@@ -1,0 +1,5 @@
+jackal/jackal_navigation
+/home/eternal/Desktop/jackalxjackal/devel/.private/jackal_navigation/cmake.lock /home/eternal/Desktop/jackalxjackal/devel/./cmake.lock
+/home/eternal/Desktop/jackalxjackal/devel/.private/jackal_navigation/share/jackal_navigation/cmake/jackal_navigationConfig-version.cmake /home/eternal/Desktop/jackalxjackal/devel/share/jackal_navigation/cmake/jackal_navigationConfig-version.cmake
+/home/eternal/Desktop/jackalxjackal/devel/.private/jackal_navigation/share/jackal_navigation/cmake/jackal_navigationConfig.cmake /home/eternal/Desktop/jackalxjackal/devel/share/jackal_navigation/cmake/jackal_navigationConfig.cmake
+/home/eternal/Desktop/jackalxjackal/devel/.private/jackal_navigation/lib/pkgconfig/jackal_navigation.pc /home/eternal/Desktop/jackalxjackal/devel/lib/pkgconfig/jackal_navigation.pc
