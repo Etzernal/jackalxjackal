@@ -40,7 +40,7 @@
       <arg name="z" value="1.0" />
       <arg name="ns" value="$(arg ns1)" />
       <arg name="yaw" value="0" />
-      <arg name="config" value="$(arg config)" />
+      <arg name="config" value="base" />
       <arg name="joystick" value="$(arg joystick)" />
     </include>
   </group>

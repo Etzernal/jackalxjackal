@@ -5,7 +5,7 @@
 
   <!-- Run the map server -->
  <arg name="map_file" default="$(find jackal_navigation)/maps/jackal_race.yaml"/>
- <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+ <node name="map_server" pkg="map_server" type="map_server" args="/home/jamesong7822/jackal/src/jackalxjackal/jackal/maps/jackal_race.yaml" />
 
   <!--- Run AMCL -->
   <include file="$(find jackal_navigation)/launch/include/amcl.launch">

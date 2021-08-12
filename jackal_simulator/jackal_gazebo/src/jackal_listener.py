@@ -15,7 +15,7 @@ class Listener:
 
 
 	def listen(self):
-		sub = rospy.Subscriber("jackal2/jackal_velocity_controller/odom", Odometry, self.odomCB)
+		sub = rospy.Subscriber("/amcl_pose", Odometry, self.odomCB)
 		self.setupTF2Listener()
 
 	def setupTF2Listener(self):
