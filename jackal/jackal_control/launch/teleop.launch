@@ -1,4 +1,6 @@
+<?xml version="1.0"?>
 <launch>
+  <arg name="ns" default="jackal" />
   <arg name="joy_dev" default="$(optenv JACKAL_JOY_DEVICE /dev/input/ps4)" />
   <arg name="joystick" default="true" />
 
@@ -19,5 +21,7 @@
     <node pkg="teleop_twist_joy" type="teleop_node" name="teleop_twist_joy"/>
   </group>
 
-  <node pkg="interactive_marker_twist_server" type="marker_server" name="twist_marker_server"/>
+  <node pkg="interactive_marker_twist_server" type="marker_server" name="twist_marker_server">
+    <param name="link_name" value="$(arg ns)/base_link"/>
+  </node>
 </launch>

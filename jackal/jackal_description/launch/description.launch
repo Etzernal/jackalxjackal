@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <launch>
   <arg name="config" default="base" />
   <arg name="ns" default="jackal" />
@@ -11,6 +12,7 @@
                     $(find jackal_description)/urdf/configs/$(arg config)
                     $(find xacro)/xacro $(find jackal_description)/urdf/jackal.urdf.xacro
                     --inorder namespace:=$(arg ns)"/>
-  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" >
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
+    <param name="tf_prefix" value="$(arg ns)"/>
   </node>
 </launch>

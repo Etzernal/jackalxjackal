@@ -1,19 +1,26 @@
 <launch>
-
+  <arg name="ns" default="jackal" />
   <arg name="use_map_topic" default="false"/>
   <arg name="scan_topic" default="$(eval optenv('JACKAL_LASER_TOPIC', 'front/scan'))" />
 
   <!-- Run the map server -->
  <arg name="map_file" default="$(find jackal_navigation)/maps/jackal_race.yaml"/>
- <node name="map_server" pkg="map_server" type="map_server" args="/home/jamesong7822/jackal/src/jackalxjackal/jackal/maps/jackal_race.yaml" />
+ <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
 
   <!--- Run AMCL -->
   <include file="$(find jackal_navigation)/launch/include/amcl.launch">
+    <arg name="ns" value="$(arg ns)" />
     <arg name="use_map_topic" value="$(arg use_map_topic)" />
     <arg name="scan_topic"    value="$(arg scan_topic)" />
   </include>
 
   <!--- Run Move Base -->
- <include file="$(find jackal_navigation)/launch/include/move_base.launch" />
+ <include file="$(find jackal_navigation)/launch/include/move_base.launch">
+    <param name="base_local_planner"                value="base_local_planner/TrajectoryPlannerROS"/>
+    <param name="global_costmap/global_frame"       value="$(arg ns)/odom"/>
+    <param name="global_costmap/robot_base_frame"   value="$(arg ns)/base_link"/>
+    <param name="local_costmap/global_frame"        value="$(arg ns)/odom"/>
+    <param name="local_costmap/robot_base_frame"    value="$(arg ns)/base_link"/>
+ </include>
 
 </launch>

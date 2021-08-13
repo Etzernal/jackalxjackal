@@ -33,35 +33,35 @@
 
   <!-- Spawn Jackal -->
   <group ns="$(arg ns1)">
-
+    <!-- <param name="tf_prefix" value="$(arg ns1)"/> -->
     <include file="$(find jackal_gazebo)/launch/spawn_jackal.launch">
       <arg name="x" value="0" />
       <arg name="y" value="0" />
-      <arg name="z" value="1.0" />
+      <arg name="z" value="0.0" />
       <arg name="ns" value="$(arg ns1)" />
-      <arg name="yaw" value="0" />
-      <arg name="config" value="base" />
-      <arg name="joystick" value="$(arg joystick)" />
-    </include>
-  </group>
-  
-  <group ns="$(arg ns2)">
-
-    <include file="$(find jackal_gazebo)/launch/spawn_jackal.launch">
-      <arg name="x" value="-5.0" />
-      <arg name="y" value="0" />
-      <arg name="z" value="1.0" />
-      <arg name="ns" value="$(arg ns2)" />
       <arg name="yaw" value="0" />
       <arg name="config" value="$(arg config)" />
       <arg name="joystick" value="$(arg joystick)" />
     </include>
   </group>
+  
+  <group ns="$(arg ns2)">
+    
+    <include file="$(find jackal_gazebo)/launch/spawn_jackal.launch">
+      <arg name="x" value="-5.0" />
+      <arg name="y" value="0" />
+      <arg name="z" value="0.0" />
+      <arg name="ns" value="$(arg ns2)" />
+      <arg name="yaw" value="0" />
+      <arg name="config" value="$(arg config)" />
+      <arg name="joystick" value="$(arg joystick)" />
+    </include>
 
+    
 
-  <node name = "jackal1_tf2_broadcaster" pkg = "jackal_gazebo" type = "jackal_broadcaster.py" respawn ="false" output ="screen" >
-    <param name = "jackal" type = "string" value ="jackal1"/>
-  </node>
+  </group>
+
+ 
 
   <!--
   <node name = "jackal2_tf2_broadcaster" pkg = "jackal_gazebo" type = "jackal_tf2_broadcaster.py" respawn ="false" output ="screen" >
@@ -69,10 +69,16 @@
   </node>
   -->
 
-  <node pkg="jackal_gazebo" type = "jackal_listener.py" name = "jackal_tf2_listener" output = "screen"/>
-
   <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="teleop_keyboard">
     <remap from= "/cmd_vel" to="/jackal1/jackal_velocity_controller/cmd_vel" />
   </node>
+
+<!--   <node name="rviz" pkg="rviz" type="rviz" args="-d $(find jackal_viz)/rviz/follower.rviz">
+    <remap from="/move_base_simple/goal" to="/$(arg ns1)/move_base_simple/goal"/>
+  </node> -->
+
+<node pkg="jackal_gazebo" type = "jackal_listener.py" name = "jackal_tf2_listener" output = "screen">
+</node>
+
   
 </launch>

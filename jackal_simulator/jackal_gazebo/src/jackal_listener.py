@@ -2,7 +2,7 @@
 import rospy
 import math
 import tf2_ros
-from geometry_msgs.msg import Twist
+from geometry_msgs.msg import Twist, PoseWithCovarianceStamped
 from nav_msgs.msg import Odometry
 from tf.transformations import euler_from_quaternion, quaternion_from_euler
 
@@ -10,12 +10,12 @@ from tf.transformations import euler_from_quaternion, quaternion_from_euler
 class Listener:
 
 	def __init__(self):
-		self.odom = Odometry()
+		self.odom = PoseWithCovarianceStamped()
 		self.listen()
 
 
 	def listen(self):
-		sub = rospy.Subscriber("/amcl_pose", Odometry, self.odomCB)
+		sub = rospy.Subscriber("/jackal1/amcl_pose", PoseWithCovarianceStamped, self.odomCB)
 		self.setupTF2Listener()
 
 	def setupTF2Listener(self):
@@ -35,7 +35,7 @@ class Listener:
 	    #listener.waitForTransform("/jackal1", "/base_link", rospy.Time(), rospy.Duration(4.0))
 		while not rospy.is_shutdown():
 			try:			
-				trans = tfBuffer.lookup_transform('base_link', 'jackal1', rospy.Time())
+				trans = tfBuffer.lookup_transform('map', 'jackal1/base_link', rospy.Time())
 			except (tf2_ros.LookupException, tf2_ros.ConnectivityException, tf2_ros.ExtrapolationException):
 				rate.sleep()
 				continue
