@@ -7,6 +7,8 @@
   <arg name="world_name" default="$(find jackal_gazebo)/worlds/empty_world.world" />
   <arg name="ns1" default="jackal1" />
   <arg name="ns2" default="jackal2" />
+  <arg name="config1_id" default="1" />
+  <arg name="config2_id" default="2" />
 
   <!-- Short-term hack to support the original front_laser:=true argument for spawning
        the simulator. This will be removed in favour of using the config:=x arg instead. -->
@@ -29,6 +31,7 @@
     <arg name="use_sim_time" value="$(arg use_sim_time)" />
     <arg name="headless" value="$(arg headless)" />
     <arg name="world_name" value="$(arg world_name)" />
+    <arg name="verbose" value="true"/>
   </include>
 
   <!-- Spawn Jackal -->
@@ -41,6 +44,7 @@
       <arg name="ns" value="$(arg ns1)" />
       <arg name="yaw" value="0" />
       <arg name="config" value="$(arg config)" />
+      <arg name="config_id" value="$(arg config1_id)"/>
       <arg name="joystick" value="$(arg joystick)" />
     </include>
   </group>
@@ -54,31 +58,18 @@
       <arg name="ns" value="$(arg ns2)" />
       <arg name="yaw" value="0" />
       <arg name="config" value="$(arg config)" />
+      <arg name="config_id" value="$(arg config2_id)"/>
       <arg name="joystick" value="$(arg joystick)" />
     </include>
 
-    
-
   </group>
 
- 
-
-  <!--
-  <node name = "jackal2_tf2_broadcaster" pkg = "jackal_gazebo" type = "jackal_tf2_broadcaster.py" respawn ="false" output ="screen" >
-    <param name = "jackal" type = "string" value ="jackal2"/>
-  </node>
-  -->
 
   <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="teleop_keyboard">
     <remap from= "/cmd_vel" to="/jackal1/jackal_velocity_controller/cmd_vel" />
   </node>
 
-<!--   <node name="rviz" pkg="rviz" type="rviz" args="-d $(find jackal_viz)/rviz/follower.rviz">
-    <remap from="/move_base_simple/goal" to="/$(arg ns1)/move_base_simple/goal"/>
-  </node> -->
-
 <node pkg="jackal_gazebo" type = "jackal_listener.py" name = "jackal_tf2_listener" output = "screen">
 </node>
-
   
 </launch>

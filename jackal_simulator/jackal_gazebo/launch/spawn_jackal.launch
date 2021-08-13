@@ -7,6 +7,7 @@
   <arg name="z" default="1" />
   <arg name="yaw" default="0" />
   <arg name="joystick" default="true" />
+  <arg name="config_id" default="0" />
 
   <!-- Configuration of Jackal which you would like to simulate.
        See jackal_description for details. -->
@@ -16,6 +17,7 @@
   <include file="$(find jackal_description)/launch/description.launch">
     <arg name="ns" value="$(arg ns)" />
     <arg name="config" value="$(arg config)" />
+    <arg name="config_id" value="$(arg config_id)" />
   </include>
   <include file="$(find jackal_control)/launch/control.launch">
     <arg name="ns" value="$(arg ns)" />
@@ -39,7 +41,7 @@
 
   <include file="$(find jackal_navigation)/launch/include/amcl.launch">
     <!-- <arg name="use_map_topic" value="true" /> -->
-    <arg name="scan_topic" value="/front/scan" />
+    <arg name="scan_topic" value="front/scan" />
     <param name="initial_pose_x" value="$(arg x)" />
     <param name="initial_pose_y" value="$(arg y)" />
     <param name="initial_pose_a" value="$(arg z)" />
